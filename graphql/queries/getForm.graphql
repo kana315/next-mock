@@ -1,0 +1,11 @@
+query getForm {
+  getPlanList {
+    id
+    name
+  }
+  lastStock {
+    currentCount
+    limit
+  }
+  applicantCount
+}

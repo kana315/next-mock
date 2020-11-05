@@ -1,0 +1,23 @@
+overwrite: true
+schema:
+  - "./schema.json"
+documents:
+  - "graphql/queries/*.graphql"
+  - "graphql/mutations/*.graphql"
+generates:
+  src/api/graphql.ts:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-graphql-request"
+    config:
+      withHOC: false
+      withComponent: false
+      scalars:
+        Datetime: string
+        BigInt: number
+      skipTypename: true
+      immutableTypes: true
+    hooks:
+      afterOneFileWrite:
+        - prettier --write
